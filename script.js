@@ -3,9 +3,9 @@ const repoContainer = document.getElementById('repos');
 
 async function fetchRepos() {
     try {
-        const response = await fetch('https://api.github.com/users/${username}/repos');
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
         if (!response.ok) {
-            throw new Error('HTTP error! Status: ${response.status}');
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const repos = await response.json();
         displayRepos(repos);
@@ -38,5 +38,5 @@ function displayRepos(repos) {
         repoContainer.appendChild(repoDiv);
     })
 }
-//bob
+
 fetchRepos();
